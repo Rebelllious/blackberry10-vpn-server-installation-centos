@@ -7,7 +7,7 @@ Here are the steps on how to use it:
 To execute this command, you will need wget installed on your system. You might already have it in case you have used this machine for some other tasks. In case you don't have it, please execute:
 "yum install wget -y"(no quotes)
 - 3. Type or copy-paste the following command:
-"bash <(wget -qO- --no-check-certificate https://github.com/Rebelllious/blackberry10-vpn-server-installation-centos/blob/master/vpn.sh)"(no quotes)
+"bash <(wget -qO- --no-check-certificate https://github.com/Rebelllious/blackberry10-vpn-server-installation-centos/blob/master/vpn.sh)" (no quotes)
 This will start the installation script.
 - 4. If you want to just install Strongswan, please answer "no" to the question concerning dynamic DNS configuration and switch now to step 5.
 Yet, in case your IP is dynamic, you will have to say "yes" to this question and undergo some additional steps.
