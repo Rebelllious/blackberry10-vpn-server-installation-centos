@@ -1,8 +1,8 @@
 ## blackberry10-vpn-server-installation-centos
 This script is for installing the Strongswan IPsec VPN server (with optional dynamic DNS updates using Noip Dynamic DNS Client for Linux).
 Here are the steps on how to use it:
-1. Get a working instance of CentOS with working Internet connection.
-2. In your Terminal window, type or copy-paste the following command:
+- 1. Get a working instance of CentOS with working Internet connection.
+- 2. In your Terminal window, type or copy-paste the following command:
 "bash <(wget -qO- --no-check-certificate https://raw.githubusercontent.com/Rebelllious/blackberry10-vpn-server-installation-centos/master/vpn.sh)" (no quotes).
 To execute this command, you will need wget installed on your system. You might already have it in case you have used this machine for some other tasks. In case you don't have it, please execute:
 "yum install wget -y"(no quotes)
