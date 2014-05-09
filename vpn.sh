@@ -16,6 +16,7 @@ mkdir /etc/noip
 #unpack the tarball
 tar -xzvf noip-duc-linux.tar.gz -C /etc/noip
 
+#go to the directory (independent of further upgrades of the NoIP client
 noipfolder=$(find /etc/noip/ -name "noip-*" -type d)
 cd $noipfolder
 
@@ -23,7 +24,10 @@ cd $noipfolder
 make
 make install
 
+#add NoIP client to autoloading on boot
 echo "/usr/local/bin/noip2" >> /etc/rc.local
+
+#run the NoIP client
 /usr/local/bin/noip2
 #after installation the configuration script of NoIP will start automatically
 }
@@ -57,9 +61,13 @@ yum -y install gmp-devel openldap-devel libcurl-devel openssl-devel
 #downloading Strongswan source
 wget http://download.strongswan.org/strongswan-5.1.3.tar.bz2
 
+#create directory for Strongswan unpacking
 mkdir /etc/strongswan
+
+#unpack the Strongswan tarball
 tar xjvf strongswan-5.1.3.tar.bz2 -C /etc/strongswan
 
+#go to correct folder 
 strongswanfolder=$(find /etc/strongswan/ -name "strongswan-*" -type d)
 cd $strongswanfolder
 
@@ -79,16 +87,16 @@ iptables -I INPUT -p udp --dport 500 -j ACCEPT
 iptables -I INPUT -p udp --dport 4500 -j ACCEPT
 iptables -I INPUT -p udp --dport 1701 -j ACCEPT
 
-#saving iptables rules
+#save iptables rules
 service iptables save
 
-#editing iptables in order to get rid of any REJECT rules, as Strongswan will not allow traffic to pass through it in case there are some REJECTs
+#edit iptables in order to get rid of any REJECT rules, as Strongswan will not allow traffic to pass through it in case there are some REJECTs
 sed -i '/REJECT/d' /etc/sysconfig/iptables
 
-#restarting iptables to bring changes into effect
+#restart iptables to bring changes into effect
 service iptables restart
 
-#changing core parameters for Strongswan to work properly
+#change core parameters for Strongswan to work properly
 sed -i -e 's/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf
 sed -i '/net.ipv4.ip_forward = 1/a net.net.ipv4.conf.default.proxy_arp = 1' /etc/sysctl.conf
 sed -i '/net.net.ipv4.conf.default.proxy_arp = 1/a net.ipv4.conf.default.arp_accept = 1' /etc/sysctl.conf
@@ -162,6 +170,7 @@ then
 	strongswan
 elif [ "$dynamic" == "yes" ]
 then
+	#NoIP and Strongswan are installed
 	noip
 	strongswan
 else
