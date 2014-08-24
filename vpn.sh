@@ -159,7 +159,7 @@ ipsec start
 }
 #############################################
 #install wget to be able to download files from the Internet, will be needed anyway
-yum install wget vim make gcc unzip -y
+yum install wget vim make gcc glibc glibc-headers unzip -y
 
 #ask if dynamic DNS configuration will be used
 echo "Will you use dynamic DNS configuration for this installation? [yes/no]"
