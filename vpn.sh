@@ -59,13 +59,13 @@ yum -y update;
 yum -y install gmp-devel openldap-devel libcurl-devel openssl-devel
 
 #downloading Strongswan source
-wget http://download.strongswan.org/strongswan-5.1.3.tar.bz2
+wget http://download.strongswan.org/strongswan-5.2.0.tar.bz2
 
 #create directory for Strongswan unpacking
 mkdir /etc/strongswan
 
 #unpack the Strongswan tarball
-tar xjvf strongswan-5.1.3.tar.bz2 -C /etc/strongswan
+tar xjvf strongswan-5.2.0.tar.bz2 -C /etc/strongswan
 
 #go to correct folder 
 strongswanfolder=$(find /etc/strongswan/ -name "strongswan-*" -type d)
