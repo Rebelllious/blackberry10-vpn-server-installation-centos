@@ -132,7 +132,7 @@ conn rem
    leftauth=psk
    leftid=$IP
    right=%any
-   rightsourceip=192.168.2.100/29
+   rightsourceip=192.168.55.0/24
    rightauth=eap-mschapv2
    rightsendcert=never
    eap_identity=%any
