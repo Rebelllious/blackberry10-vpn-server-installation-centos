@@ -80,7 +80,7 @@ make
 #install Strongswan
 make install
 
-#edit iptables rules (UDP ports 500, 4500 and 1701 shall be opened)
+#edit iptables rules (UDP ports 500 and 4500 shall be opened)
 iptables -I POSTROUTING -t nat -o eth0 -j MASQUERADE
 iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 iptables -I INPUT -p udp --dport 500 -j ACCEPT
