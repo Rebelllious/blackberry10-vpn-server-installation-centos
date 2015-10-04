@@ -85,7 +85,6 @@ iptables -I POSTROUTING -t nat -o eth0 -j MASQUERADE
 iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 iptables -I INPUT -p udp --dport 500 -j ACCEPT
 iptables -I INPUT -p udp --dport 4500 -j ACCEPT
-iptables -I INPUT -p udp --dport 1701 -j ACCEPT
 
 #save iptables rules
 service iptables save
