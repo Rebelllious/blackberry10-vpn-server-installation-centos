@@ -98,7 +98,7 @@ service iptables restart
 #change core parameters for Strongswan to work properly
 sed -i -e 's/net.ipv4.ip_forward = 0/net.ipv4.ip_forward = 1/g' /etc/sysctl.conf
 sed -i '/net.ipv4.ip_forward = 1/a net.net.ipv4.conf.default.proxy_arp = 1' /etc/sysctl.conf
-sed -i '/net.net.ipv4.conf.default.proxy_arp = 1/a net.ipv4.conf.default.arp_accept = 1' /etc/sysctl.conf
+sed -i '/net.ipv4.conf.default.proxy_arp = 1/a net.ipv4.conf.default.arp_accept = 1' /etc/sysctl.conf
 sed -i '/net.ipv4.conf.default.arp_accept = 1/a net.ipv4.conf.default.proxy_arp_pvlan = 1' /etc/sysctl.conf
 
 sed -i -e 's/net.bridge.bridge-nf-call-ip6tables = 0/#net.bridge.bridge-nf-call-ip6tables = 0/g' /etc/sysctl.conf
